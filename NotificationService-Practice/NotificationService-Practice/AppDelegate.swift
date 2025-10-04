@@ -20,6 +20,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         
         // 2. device 토큰 획득: application(_:didRegisterForRemoteNotificationsWithDeviceToken:) 메소드 호출
         application.registerForRemoteNotifications()
+        center.delegate = self
         
         return true
     }
@@ -30,4 +31,17 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         print(tokenString)
     }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    // foreground에서 시스템 푸시를 수신했을 때 해당 메소드가 호출
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(#function)
+        completionHandler([.sound, .badge, .banner])
+    }
+    
+    // foreground, background에서 시스템 푸시를 탭하거나 dismiss했을때 해당 메소드가 호출
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(#function)
+    }
 }
