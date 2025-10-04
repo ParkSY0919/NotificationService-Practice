@@ -6,8 +6,37 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9EEC9D452E90FF4200D5EFB2 /* NotificationSerciceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9EEC9D3E2E90FF4200D5EFB2 /* NotificationSerciceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9EEC9D432E90FF4200D5EFB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EEC9D0A2E90EBC800D5EFB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EEC9D3D2E90FF4200D5EFB2;
+			remoteInfo = NotificationSerciceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9EEC9D4A2E90FF4200D5EFB2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9EEC9D452E90FF4200D5EFB2 /* NotificationSerciceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9EEC9D122E90EBC800D5EFB2 /* NotificationService-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NotificationService-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EEC9D3E2E90FF4200D5EFB2 /* NotificationSerciceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationSerciceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -17,6 +46,13 @@
 				Info.plist,
 			);
 			target = 9EEC9D112E90EBC800D5EFB2 /* NotificationService-Practice */;
+		};
+		9EEC9D492E90FF4200D5EFB2 /* Exceptions for "NotificationSerciceExtension" folder in "NotificationSerciceExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9EEC9D3D2E90FF4200D5EFB2 /* NotificationSerciceExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -29,10 +65,25 @@
 			path = "NotificationService-Practice";
 			sourceTree = "<group>";
 		};
+		9EEC9D3F2E90FF4200D5EFB2 /* NotificationSerciceExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9EEC9D492E90FF4200D5EFB2 /* Exceptions for "NotificationSerciceExtension" folder in "NotificationSerciceExtension" target */,
+			);
+			path = NotificationSerciceExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9EEC9D0F2E90EBC800D5EFB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EEC9D3B2E90FF4200D5EFB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				9EEC9D142E90EBC800D5EFB2 /* NotificationService-Practice */,
+				9EEC9D3F2E90FF4200D5EFB2 /* NotificationSerciceExtension */,
 				9EEC9D132E90EBC800D5EFB2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				9EEC9D122E90EBC800D5EFB2 /* NotificationService-Practice.app */,
+				9EEC9D3E2E90FF4200D5EFB2 /* NotificationSerciceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,10 +121,12 @@
 				9EEC9D0E2E90EBC800D5EFB2 /* Sources */,
 				9EEC9D0F2E90EBC800D5EFB2 /* Frameworks */,
 				9EEC9D102E90EBC800D5EFB2 /* Resources */,
+				9EEC9D4A2E90FF4200D5EFB2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9EEC9D442E90FF4200D5EFB2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9EEC9D142E90EBC800D5EFB2 /* NotificationService-Practice */,
@@ -82,6 +137,28 @@
 			productName = "NotificationService-Practice";
 			productReference = 9EEC9D122E90EBC800D5EFB2 /* NotificationService-Practice.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9EEC9D3D2E90FF4200D5EFB2 /* NotificationSerciceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EEC9D462E90FF4200D5EFB2 /* Build configuration list for PBXNativeTarget "NotificationSerciceExtension" */;
+			buildPhases = (
+				9EEC9D3A2E90FF4200D5EFB2 /* Sources */,
+				9EEC9D3B2E90FF4200D5EFB2 /* Frameworks */,
+				9EEC9D3C2E90FF4200D5EFB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9EEC9D3F2E90FF4200D5EFB2 /* NotificationSerciceExtension */,
+			);
+			name = NotificationSerciceExtension;
+			packageProductDependencies = (
+			);
+			productName = NotificationSerciceExtension;
+			productReference = 9EEC9D3E2E90FF4200D5EFB2 /* NotificationSerciceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -94,6 +171,9 @@
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					9EEC9D112E90EBC800D5EFB2 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					9EEC9D3D2E90FF4200D5EFB2 = {
 						CreatedOnToolsVersion = 16.1;
 					};
 				};
@@ -113,12 +193,20 @@
 			projectRoot = "";
 			targets = (
 				9EEC9D112E90EBC800D5EFB2 /* NotificationService-Practice */,
+				9EEC9D3D2E90FF4200D5EFB2 /* NotificationSerciceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9EEC9D102E90EBC800D5EFB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EEC9D3C2E90FF4200D5EFB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +223,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9EEC9D3A2E90FF4200D5EFB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9EEC9D442E90FF4200D5EFB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EEC9D3D2E90FF4200D5EFB2 /* NotificationSerciceExtension */;
+			targetProxy = 9EEC9D432E90FF4200D5EFB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9EEC9D1E2E90EBCA00D5EFB2 /* Debug */ = {
@@ -327,6 +430,56 @@
 			};
 			name = Release;
 		};
+		9EEC9D472E90FF4200D5EFB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A95XXD5WT7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationSerciceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationSerciceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.psy.NotificationService-Practice.NotificationSerciceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9EEC9D482E90FF4200D5EFB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A95XXD5WT7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationSerciceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationSerciceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.psy.NotificationService-Practice.NotificationSerciceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -344,6 +497,15 @@
 			buildConfigurations = (
 				9EEC9D212E90EBCA00D5EFB2 /* Debug */,
 				9EEC9D222E90EBCA00D5EFB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EEC9D462E90FF4200D5EFB2 /* Build configuration list for PBXNativeTarget "NotificationSerciceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EEC9D472E90FF4200D5EFB2 /* Debug */,
+				9EEC9D482E90FF4200D5EFB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
