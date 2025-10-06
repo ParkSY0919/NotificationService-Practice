@@ -23,6 +23,24 @@ class NotificationService: UNNotificationServiceExtension {
         
         bestAttemptContent.title = "변경 " + request.content.title
         bestAttemptContent.subtitle = "변경 " + request.content.subtitle
+        
+        let imageURLString = request.content.userInfo["image"] as! String
+        do {
+            // 이미지 타입으로 저장하지 않으면 error나므로 주의 (.png, .jpg 등으로 할 것)
+            try saveFile(id: "myImage.png", imageURLString: imageURLString) { fileURL in
+                do {
+                    print(fileURL.absoluteURL)
+                    let attachment = try UNNotificationAttachment(identifier: "", url: fileURL, options: nil)
+                    bestAttemptContent.attachments = [attachment]
+                    contentHandler(bestAttemptContent)
+                } catch {
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+        
         contentHandler(bestAttemptContent)
     }
     
@@ -31,6 +49,20 @@ class NotificationService: UNNotificationServiceExtension {
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)
         }
+    }
+    
+    // 알림에 띄울 이미지는 로컬 파일로 저장돼있는 것들 중에서만 띄울 수 있기에, 알림으로 받은 이미지 url을 로컬 임시파일로 저장
+    private func saveFile(id: String, imageURLString: String, completion: (_ fileURL: URL) -> Void) throws {
+        let fileManager = FileManager.default
+        let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let fileURL = documentDirectory.appendingPathComponent(id)
+        
+        guard
+            let imageURL = URL(string: imageURLString),
+            let data = try? Data(contentsOf: imageURL)
+        else { throw URLError(.cannotDecodeContentData) }
+        try data.write(to: fileURL)
+        completion(fileURL)
     }
     
 }
