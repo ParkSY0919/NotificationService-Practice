@@ -61,6 +61,13 @@
 			);
 			target = 9EB89C702E96689B002D6AA9 /* NotificationContentExtension */;
 		};
+		9EB89C872E9671CC002D6AA9 /* Exceptions for "NotificationService-Practice" folder in "NotificationSerciceExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = 9EEC9D3D2E90FF4200D5EFB2 /* NotificationSerciceExtension */;
+		};
 		9EEC9D372E90ED4200D5EFB2 /* Exceptions for "NotificationService-Practice" folder in "NotificationService-Practice" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -90,6 +97,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				9EEC9D372E90ED4200D5EFB2 /* Exceptions for "NotificationService-Practice" folder in "NotificationService-Practice" target */,
+				9EB89C872E9671CC002D6AA9 /* Exceptions for "NotificationService-Practice" folder in "NotificationSerciceExtension" target */,
 			);
 			path = "NotificationService-Practice";
 			sourceTree = "<group>";
@@ -511,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "NotificationService-Practice/NotificationService-Practice.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "NotificationService-Practice/NotificationService-PracticeDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NotificationService-Practice/Preview Content\"";
