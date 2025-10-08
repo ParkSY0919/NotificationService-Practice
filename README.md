@@ -20,13 +20,26 @@ iOS Push Notification 기능 학습을 위한 실습 프로젝트입니다. APNs
 - **주요 기능**:
   - APNs 수신 후 푸시 내용 수정 (제목/부제목에 "변경 " 접두사 추가)
   - 원격 이미지 다운로드 및 로컬 저장 후 푸시에 첨부
+  - **Intents Framework를 활용한 푸시 앱 아이콘 커스터마이징**
   - `didReceive(_:withContentHandler:)`에서 푸시 처리
   - `serviceExtensionTimeWillExpire()`로 타임아웃 처리
 
 **중요 구현 사항**:
+
+#### 1) 이미지 첨부 (`setAttachment`)
 - 이미지는 반드시 `.png`, `.jpg` 등 확장자를 포함한 파일명으로 저장 (예: `myImage.png`)
 - `userInfo["image"]`에서 이미지 URL을 가져와 처리
 - `UNNotificationAttachment`로 이미지를 알림에 첨부
+
+#### 2) 앱 아이콘 커스터마이징 (`setAppIconToCustom`)
+- `INSendMessageIntent`와 `INPerson`을 사용하여 메시지형 알림 스타일 구현
+- `INImage`로 커스텀 아바타 이미지 설정 (Assets에서 `my_image.png` 사용)
+- `INInteraction.donate()`로 Intent 등록 후 `updating(from:)`으로 알림 업데이트
+- **필수 설정**: Info.plist에 `NSUserActivityTypes` 배열 추가, 그 안에 `INSendMessageIntent` 값 포함 필요
+- 주요 파라미터:
+  - `senderPerson`: 발신자 정보 (아바타, 이름, 고유 ID)
+  - `mePerson`: 수신자 정보 (`isMe: true`)
+  - `conversationIdentifier`: 대화 고유 식별자
 
 ### 3. Notification Content Extension (`NotificationContentExtension`)
 - **Extension Point**: `com.apple.usernotifications.content-extension`
@@ -116,7 +129,8 @@ xcodebuild -project NotificationService-Practice/NotificationService-Practice.xc
 | Foreground 푸시 수신 | [AppDelegate.swift](NotificationService-Practice/NotificationService-Practice/AppDelegate.swift) | `userNotificationCenter(_:willPresent:withCompletionHandler:)` |
 | 커스텀 액션 처리 | [AppDelegate.swift](NotificationService-Practice/NotificationService-Practice/AppDelegate.swift) | `userNotificationCenter(_:didReceive:withCompletionHandler:)` |
 | 푸시 내용 수정 | [NotificationService.swift](NotificationService-Practice/NotificationSerciceExtension/NotificationService.swift) | `didReceive(_:withContentHandler:)` |
-| 이미지 다운로드/첨부 | [NotificationService.swift](NotificationService-Practice/NotificationSerciceExtension/NotificationService.swift) | `saveFile(id:imageURLString:completion:)` |
+| 이미지 다운로드/첨부 | [NotificationService.swift](NotificationService-Practice/NotificationSerciceExtension/NotificationService.swift) | `setAttachment(request:contentHandler:)` |
+| 앱 아이콘 커스터마이징 | [NotificationService.swift](NotificationService-Practice/NotificationSerciceExtension/NotificationService.swift) | `setAppIconToCustom(request:contentHandler:)` |
 | 커스텀 UI 렌더링 | [NotificationViewController.swift](NotificationService-Practice/NotificationContentExtension/NotificationViewController.swift) | `didReceive(_:)` |
 
 ## 참고사항
@@ -125,3 +139,9 @@ xcodebuild -project NotificationService-Practice/NotificationService-Practice.xc
 - Service Extension은 최대 30초의 실행 시간 제한이 있습니다
 - Content Extension은 Category ID가 일치해야 트리거됩니다 (현재: `myNotificationCategory`)
 - APNs 테스트는 실제 디바이스에서만 가능하며, Simulator에서는 제한적입니다
+
+## 참고 자료
+
+이 프로젝트는 다음 블로그 시리즈를 참고하여 작성되었습니다:
+- [iOS) UserNotifications framework (3) - NotificationServiceExtension 알아보기](https://ios-development.tistory.com/1280)
+- 해당 시리즈에서 APNs, Notification Service Extension, Notification Content Extension 구현 방법을 학습했습니다
