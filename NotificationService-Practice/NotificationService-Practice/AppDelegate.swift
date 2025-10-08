@@ -14,6 +14,18 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         
         // 1. 푸시 권한 요청
         let center = UNUserNotificationCenter.current()
+        
+        // * 커스텀 액션 버튼 추가
+        let doneAction = UNNotificationAction(identifier: "action.done", title: "Done")
+        let cancelAction = UNNotificationAction(identifier: "action.cancle", title: "Cancel")
+        let categories = UNNotificationCategory(
+            identifier: "myNotificationCategory",
+            actions: [doneAction, cancelAction],
+            intentIdentifiers: [],
+            options: .customDismissAction
+        )
+        center.setNotificationCategories([categories])
+        
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             print(granted)
         }
@@ -43,5 +55,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // foreground, background에서 시스템 푸시를 탭하거나 dismiss했을때 해당 메소드가 호출
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function)
+        print(response.actionIdentifier)
     }
 }
